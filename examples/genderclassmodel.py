@@ -9,7 +9,7 @@ Revised : 28 March 2014
 import csv as csv
 import numpy as np
 
-csv_file_object = csv.reader(open('train.csv', 'rb'))       # Load in the csv file
+csv_file_object = csv.reader(open('../data/train.csv', 'rb'))       # Load in the csv file
 header = csv_file_object.next()                             # Skip the fist line as it is a header
 data=[]                                                     # Create a variable to hold the data
 
@@ -70,12 +70,12 @@ survival_table[ survival_table >= 0.5 ] = 1
 # Now I have my indicator I can read in the test file and write out
 # if a women then survived(1) if a man then did not survived (0)
 # First read in test
-test_file = open('test.csv', 'rb')
+test_file = open('../data/test.csv', 'rb')
 test_file_object = csv.reader(test_file)
 header = test_file_object.next()
 
 # Also open the a new file so I can write to it. 
-predictions_file = open("genderclassmodel.csv", "wb")
+predictions_file = open("../data/genderclassmodel.csv", "wb")
 predictions_file_object = csv.writer(predictions_file)
 predictions_file_object.writerow(["PassengerId", "Survived"])
 
